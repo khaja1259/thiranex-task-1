@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portifilo</title>
+    <style>
+      
+        header{
+        background-color: blueviolet;
+        padding: 10px 20px;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .m{
+          border-radius:50px ;
+          width: 50px;
+          height: 50px;
+          object-fit: cover ;
+      }
+      .logo{
+        height: 100vh;
+        background-color: deepskyblue;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-size-adjust: 50%;
+      }
+      .logo1{
+        display: flex;
+        gap: 20px;
+        padding: 10px;
+        
+        
+      }
+      .logo2{
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        height: 50px;
+        width: 90px;
+        gap: 10px;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        text-align: center;
+        cursor:pointer
+        
+        
+        
+      }
+      button:hover{
+            background-color: rgb(23, 202, 230);
+           color: white;
+
+      }
+      .sk{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      
+
+        text-align: center;
+
+      }
+      .sk h2{
+        color: blue;
+        font-size: 50px;
+      }
+      .sk li{
+        font-size: 35px;
+      }
+      .table{
+        display: flex;
+        flex-direction: column;
+        padding: 50px 0;
+        text-align: center;
+        height: 100vh;
+        justify-content: center;
+         border: 2px solid;
+        border-radius: 30px;
+        border-spacing: 10px;
+      }
+      table{
+        width:80%;
+        border-collapse: collapse;
+        font-size: 17px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        align-items: center;
+      }
+      th,td{
+        border: 1px solid #ddd;
+        padding: 20px;
+        text-align: center;
+      }
+      th{
+        color: rgb(0, 0, 0);
+      }
+      .form{
+        
+        height: 90vh;
+        align-items: center;                   
+        text-align: center;
+        border: 1px solid;
+        border-radius: 30px;
+      
+         
+      }
+      .form h1{
+        font-size: 40px;
+        margin-bottom: 20px;
+        align-items: center;
+      }
+      h3{
+        font-size: 20px;
+        align-items: center;
+      }
+      .form button{
+        color: rgb(0, 0, 0);
+       font-size: 20px;
+        text-align: right;
+      
+      
+      }
+      footer{
+        align-items: end;
+        background-color: black;
+        color: white;
+        padding: 10px 20px;
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <h3>Shaik Khaja Naserudden</h3>
+       <img class="m" src="logo.webp" width="150px" height="40px" >
+    </header>
+    <div class="logo">
+    <img  src="logo.webp" width="300px" height=":350px" >
+    
+    
+    <p >
+        My Name is Shaik Khaja Naserudden I Am From Ibrahimpatnam <br> Now I Am Studying BTech 2 Year
+    </p>
+      <div class="logo1">
+    <a   href="about.html"><button class="logo2">About Me</button></a>
+     <a  href="skill.html"><button class="logo2">My skills</button></a>
+     <a  href="projects.html"><button class="logo2">Projects</button></a>
+     <a href="r.html"><button class="logo2">download resume</button></a>
+      </div>
+    </div>
+
+  
+    <form class="sk">
+    <h2 sytle="color bule">My Skills</h2>
+    <ol>
+        <li>java</li>
+        <li>web development</li>
+        <li>python</li> 
+        <li>problem solving</li>   
+    </ol>
+    </form>
+    <div class="table">
+        <h2>My Projects</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Project Name</th>
+                <th>using</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>My Portiflio Website</td>
+              <td>web development</td>
+            </tr>
+            <tr>
+              <td>Password Genertor</td>
+              <td>python</td>
+            </tr>
+            <tr>
+              <td>Simple Calculator</td>
+              <td>Java</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="form">
+      <h1>Content Me</h1>
+      <h3>Name:Shaik Khaja Naserudden</h3>
+      <h3>Place:Vijayawada</h3>
+      <h3>content:9600900900</h3>
+       <h3>Email: khajashaik1259@gmail.com</h3> 
+       <label for="comment">comments:</label>
+       <input type="text" id="comment">
+       <button type="button" onclick="submitComment()">submit</button>
+    </div>
+   
+    <script>
+        function submitComment() {
+            const comment = document.getElementById("comment").value;
+            fetch("/save-comment", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ comment })
+            })
+            .then(res => res.text())
+            .then(data => alert(data))
+            .catch(err => console.error(err));
+        }
+    </script>
+
+    <footer>
+      <p>@2025 copyright</p>
+    </footer>
+</body>
+</html>
